@@ -12,9 +12,11 @@ NOURISH is a personalized, AI-driven nutrition and meal planning platform design
 
 ## TODOs
 
+- [ ] **API Key**: Update Gemini API to Lavanya's API key on GitHub and redeploy
 - [ ] **Videos:** Add educational doctor and expert nutritionist videos to the platform.
 - [ ] **Photos on Recipes:** Re-integrate high-quality, accurate food photography into the recipe cards and details.
 - [x] **Hosting:** Deploy and host the website publicly for live user access. (Completed via GitHub Pages)
+- [ ] **Hosting:** Deploy and host the website publicly on a custom domain
 
 ---
 
