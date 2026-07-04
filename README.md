@@ -73,15 +73,18 @@ When you want to contribute or save your changes:
 
 ### 6. Deployment (GitHub Pages)
 
-The app is configured to automatically deploy to GitHub Pages.
+The app is fully automated to deploy to GitHub Pages using GitHub Actions whenever you push to the `main` branch.
 
-1. Ensure your `.env` file is present locally with the `VITE_GEMINI_API_KEY`.
-2. Run the deployment script:
-   ```bash
-   npm run deploy
-   ```
-3. This command will build the app, embed the API key securely into the static files, and push the output to the `gh-pages` branch.
-4. On GitHub, navigate to **Settings -> Pages** and set the source to deploy from the **`gh-pages`** branch.
+**Initial Setup:**
+1. Go to your GitHub repository -> **Settings** -> **Secrets and variables** -> **Actions**.
+2. Add a new repository secret named exactly `VITE_GEMINI_API_KEY` and paste your Gemini API key as the value (no quotes).
+3. Go to **Settings** -> **Pages**.
+4. Under "Build and deployment", set the **Source** to **GitHub Actions**.
 
-**Troubleshooting GitHub Actions:**
-If you ever see a "submodule" error (`fatal: No url found for submodule path`) in GitHub Actions, it means your `node_modules` got accidentally pushed to `main`. Ensure your `.gitignore` contains `node_modules`, then run `git rm -r --cached node_modules` and commit the change.
+Whenever you run `git push origin main`, GitHub will automatically build your React app, securely inject your API key into the final build, and deploy the live site. 
+
+**Troubleshooting API Keys:**
+If your live site throws a `400 Bad Request` or `403 Forbidden` API error:
+- Ensure you did not include quotes (`""`) when pasting the API key into GitHub Secrets.
+- Ensure your Google Cloud Console has an **HTTP Referrers** restriction set exactly to `https://navyanshmalhotra.github.io/*` to protect your key from theft.
+- Remember to do a **Hard Refresh** (`Cmd+Shift+R` or `Ctrl+F5`) on the live site after a new deployment to clear out old cached JavaScript files!
