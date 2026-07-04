@@ -14,7 +14,7 @@ NOURISH is a personalized, AI-driven nutrition and meal planning platform design
 
 - [ ] **Videos:** Add educational doctor and expert nutritionist videos to the platform.
 - [ ] **Photos on Recipes:** Re-integrate high-quality, accurate food photography into the recipe cards and details.
-- [ ] **Hosting:** Deploy and host the website publicly for live user access.
+- [x] **Hosting:** Deploy and host the website publicly for live user access. (Completed via GitHub Pages)
 
 ---
 
@@ -70,3 +70,15 @@ When you want to contribute or save your changes:
    ```bash
    git push origin main
    ```
+
+### 6. Deployment (GitHub Pages)
+
+The app is configured to automatically deploy to GitHub Pages.
+
+1. Ensure your `.env` file is present locally with the `VITE_GEMINI_API_KEY`.
+2. Run the deployment script:
+   ```bash
+   npm run deploy
+   ```
+3. This command will build the app, embed the API key securely into the static files, and push the output to the `gh-pages` branch.
+4. On GitHub, navigate to **Settings -> Pages** and set the source to deploy from the **`gh-pages`** branch.
