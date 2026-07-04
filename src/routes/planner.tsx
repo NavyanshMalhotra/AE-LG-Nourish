@@ -314,7 +314,7 @@ Return ONLY valid JSON matching this structure exactly (no markdown formatting, 
                           {mealType === "breakfast" ? "🌅" : mealType === "lunch" ? "☀️" : mealType === "dinner" ? "🌙" : "🍎"}
                         </span>
                         {tt({
-                          en: \`\${mealType} Options\`,
+                          en: `${mealType} Options`,
                           hi: mealType === "breakfast" ? "नाश्ते के विकल्प" : mealType === "lunch" ? "दोपहर के भोजन के विकल्प" : mealType === "dinner" ? "रात के खाने के विकल्प" : "स्नैक के विकल्प",
                           mr: mealType === "breakfast" ? "नाश्त्याचे पर्याय" : mealType === "lunch" ? "दुपारच्या जेवणाचे पर्याय" : mealType === "dinner" ? "रात्रीच्या जेवणाचे पर्याय" : "स्नॅकचे पर्याय"
                         })}
