@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
-  Apple, Video, Phone, ArrowRight, HeartPulse, Baby, Sparkles, ChefHat
+  Apple, Video, Phone, ArrowRight, User, Baby, Sparkles, ChefHat
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { useI18n } from "@/lib/i18n";
@@ -47,7 +47,7 @@ function Home() {
             <div className="grid gap-6 sm:grid-cols-2">
               <button onClick={() => setStep(3)} className="group flex flex-col items-center justify-center gap-4 rounded-3xl border-2 border-primary/20 bg-card p-10 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-xl">
                 <div className="rounded-full bg-primary/10 p-6">
-                  <HeartPulse className="h-16 w-16 text-primary" />
+                  <User className="h-16 w-16 text-primary" />
                 </div>
                 <span className="text-3xl font-bold text-foreground">
                   {tt({ en: "Women", hi: "महिलाएं", mr: "महिला" })}
