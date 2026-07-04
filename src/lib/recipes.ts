@@ -9,24 +9,8 @@ export type Recipe = {
   tag?: string | TT;
   category?: string | TT;
   steps: (string | TT)[];
-  image: string;
 };
 
-// Precise and matching Unsplash images for each recipe category/type
-const images = {
-  palakChana: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800", // Greenish/dal look
-  dosa: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&q=80&w=800",
-  chaat: "https://images.unsplash.com/photo-1606491956689-2ea866880c84?auto=format&fit=crop&q=80&w=800",
-  dal: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&q=80&w=800",
-  rajma: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800", // Bean salad/bowl look
-  egg: "https://images.unsplash.com/photo-1614777986387-015c2a8c165a?auto=format&fit=crop&q=80&w=800", // Scrambled eggs
-  khichdi: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&q=80&w=800", // Porridge/khichdi bowl
-  porridge: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?auto=format&fit=crop&q=80&w=800", // Porridge bowl
-  ladoo: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800", // Indian sweets/snacks
-  wrap: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800", // Rolls/roti
-  friedRice: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&q=80&w=800",
-  paratha: "https://images.unsplash.com/photo-1606850020731-036de8da2c8b?auto=format&fit=crop&q=80&w=800", // Paratha stack
-};
 
 export const ironEnergyRecipes: Recipe[] = [
   {
@@ -36,7 +20,6 @@ export const ironEnergyRecipes: Recipe[] = [
     benefits: { en: "Plant-based iron, protein, fibre, and slow-release energy. Lemon helps improve iron absorption.", hi: "पौधे-आधारित आयरन, प्रोटीन, फाइबर और धीमी गति से जारी होने वाली ऊर्जा। नींबू आयरन के अवशोषण में मदद करता है।", mr: "वनस्पती-आधारित लोह, प्रथिने, फायबर आणि हळू सोडणारी ऊर्जा. लिंबू लोहाचे शोषण सुधारण्यास मदत करते." },
     time: { en: "20 to 25 min", hi: "20 से 25 मिनट", mr: "20 ते 25 मिनिटे" },
     category: { en: "Iron & Energy", hi: "आयरन और ऊर्जा", mr: "लोह आणि ऊर्जा" },
-    image: images.palakChana,
     steps: [
       { en: "Heat oil, splutter jeera, then add chopped garlic and onion. Sauté till golden.", hi: "तेल गरम करें, जीरा चटकाएं, फिर कटा हुआ लहसुन और प्याज डालें। सुनहरा होने तक भूनें।", mr: "तेल गरम करा, जिरे तडतडू द्या, नंतर चिरलेला लसूण आणि कांदा घाला. सोनेरी होईपर्यंत परता." },
       { en: "Add tomato, haldi, chilli powder and a pinch of salt. Cook till soft and oil separates.", hi: "टमाटर, हल्दी, मिर्च पाउडर और चुटकी भर नमक डालें। नरम होने और तेल अलग होने तक पकाएं।", mr: "टोमॅटो, हळद, तिखट आणि चिमूटभर मीठ घाला. मऊ होईपर्यंत आणि तेल वेगळे होईपर्यंत शिजवा." },
@@ -52,7 +35,6 @@ export const ironEnergyRecipes: Recipe[] = [
     benefits: { en: "Ragi gives iron and complex carbs. Sambar adds protein, fibre and minerals from dal and vegetables.", hi: "रागी आयरन और कॉम्प्लेक्स कार्ब्स देता है। सांबर दाल और सब्जियों से प्रोटीन, फाइबर और खनिज जोड़ता है।", mr: "नाचणी लोह आणि कॉम्प्लेक्स कर्बोदके देते. सांबार डाळ आणि भाज्यांमधून प्रथिने, फायबर आणि खनिजे जोडते." },
     time: { en: "20 min", hi: "20 मिनट", mr: "20 मिनिटे" },
     category: { en: "Iron & Energy", hi: "आयरन और ऊर्जा", mr: "लोह आणि ऊर्जा" },
-    image: images.dosa,
     steps: [
       { en: "Mix ragi flour, rice flour, salt and enough water/curd to a thin pouring batter. Rest 10 min.", hi: "रागी का आटा, चावल का आटा, नमक और पर्याप्त पानी/दही मिलाकर एक पतला घोल बना लें। 10 मिनट आराम दें।", mr: "नाचणीचे पीठ, तांदळाचे पीठ, मीठ आणि पुरेसे पाणी/दही मिसळून पातळ पीठ बनवा. 10 मिनिटे विश्रांती द्या." },
       { en: "Heat a tawa, pour a ladle of batter and spread thin from the centre outwards.", hi: "एक तवा गरम करें, एक कलछी घोल डालें और बीच से बाहर की ओर पतला फैलाएं।", mr: "तवा गरम करा, पिठाचा पळीभर गोळा घाला आणि मध्यभागातून बाहेरच्या बाजूला पातळ पसरा." },
@@ -67,7 +49,6 @@ export const ironEnergyRecipes: Recipe[] = [
     benefits: { en: "Rich in plant iron, protein and fibre. Steady energy. Lemon adds vitamin C for iron absorption.", hi: "पौधे के लोहे, प्रोटीन और फाइबर में भरपूर। स्थिर ऊर्जा। नींबू लोहे के अवशोषण के लिए विटामिन सी जोड़ता है।", mr: "वनस्पती लोह, प्रथिने आणि फायबरने समृद्ध. स्थिर ऊर्जा. लिंबू लोहाच्या शोषणासाठी व्हिटॅमिन सी जोडते." },
     time: { en: "10 min", hi: "10 मिनट", mr: "10 मिनिटे" },
     category: { en: "Iron & Energy", hi: "आयरन और ऊर्जा", mr: "लोह आणि ऊर्जा" },
-    image: images.chaat,
     steps: [
       { en: "Drain warm boiled chana into a bowl.", hi: "एक कटोरे में गर्म उबले हुए चने डालें।", mr: "एका वाडग्यात गरम उकडलेले चणे गाळून घ्या." },
       { en: "Add finely chopped onion, tomato, cucumber, green chilli and coriander.", hi: "बारीक कटा हुआ प्याज, टमाटर, खीरा, हरी मिर्च और धनिया डालें।", mr: "बारीक चिरलेला कांदा, टोमॅटो, काकडी, हिरवी मिरची आणि कोथिंबीर घाला." },
@@ -82,7 +63,6 @@ export const ironEnergyRecipes: Recipe[] = [
     benefits: { en: "Moringa leaves add iron and micronutrients. Dal gives protein, rice adds energy. Lemon helps iron absorption.", hi: "सहजन के पत्ते आयरन और सूक्ष्म पोषक तत्व जोड़ते हैं। दाल प्रोटीन देती है, चावल ऊर्जा जोड़ता है। नींबू आयरन अवशोषण में मदद करता है।", mr: "शेवग्याची पाने लोह आणि सूक्ष्म पोषक घटक जोडतात. डाळ प्रथिने देते, भात ऊर्जा जोडतो. लिंबू लोह शोषण्यास मदत करते." },
     time: { en: "30 to 35 min", hi: "30 से 35 मिनट", mr: "30 ते 35 मिनिटे" },
     category: { en: "Iron & Energy", hi: "आयरन और ऊर्जा", mr: "लोह आणि ऊर्जा" },
-    image: images.dal,
     steps: [
       { en: "Pressure-cook dal with haldi and a little salt till soft.", hi: "हल्दी और थोड़े से नमक के साथ दाल को नरम होने तक प्रेशर-कुक करें।", mr: "हळद आणि थोडे मीठ घालून डाळ मऊ होईपर्यंत प्रेशर-कूक करा." },
       { en: "Heat ghee, splutter jeera, add hing, garlic and chopped tomato; cook till soft.", hi: "घी गरम करें, जीरा चटकाएं, हींग, लहसुन और कटा हुआ टमाटर डालें; नरम होने तक पकाएं।", mr: "तूप गरम करा, जिरे तडतडू द्या, हिंग, लसूण आणि चिरलेला टोमॅटो घाला; मऊ होईपर्यंत शिजवा." },
@@ -97,7 +77,6 @@ export const ironEnergyRecipes: Recipe[] = [
     benefits: { en: "Rajma adds iron, protein and fibre. Rice gives energy. Lemon kachumber adds vitamin C for iron absorption.", hi: "राजमा आयरन, प्रोटीन और फाइबर जोड़ता है। चावल ऊर्जा देता है। नींबू कचुंबर आयरन अवशोषण के लिए विटामिन सी जोड़ता है।", mr: "राजमा लोह, प्रथिने आणि फायबर जोडतो. भात ऊर्जा देतो. लिंबू कचुंबर लोह शोषण्यासाठी व्हिटॅमिन सी जोडते." },
     time: { en: "25–30 min", hi: "25-30 मिनट", mr: "25-30 मिनिटे" },
     category: { en: "Iron & Energy", hi: "आयरन और ऊर्जा", mr: "लोह आणि ऊर्जा" },
-    image: images.rajma,
     steps: [
       { en: "Heat oil, splutter jeera, sauté onion till golden, add ginger-garlic paste.", hi: "तेल गरम करें, जीरा चटकाएं, प्याज को सुनहरा होने तक भूनें, अदरक-लहसुन का पेस्ट डालें।", mr: "तेल गरम करा, जिरे तडतडू द्या, कांदा सोनेरी होईपर्यंत परता, आले-लसूण पेस्ट घाला." },
       { en: "Add tomato puree and rajma masala; cook till oil separates.", hi: "टमाटर की प्यूरी और राजमा मसाला डालें; तेल अलग होने तक पकाएं।", mr: "टोमॅटोची प्युरी आणि राजमा मसाला घाला; तेल वेगळे होईपर्यंत शिजवा." },
@@ -112,7 +91,6 @@ export const ironEnergyRecipes: Recipe[] = [
     benefits: { en: "Eggs give protein and B vitamins for energy.", hi: "अंडे ऊर्जा के लिए प्रोटीन और बी विटामिन देते हैं।", mr: "अंडी ऊर्जेसाठी प्रथिने आणि बी जीवनसत्त्वे देतात." },
     time: { en: "15 to 20 min", hi: "15 से 20 मिनट", mr: "15 ते 20 मिनिटे" },
     category: { en: "Iron & Energy", hi: "आयरन और ऊर्जा", mr: "लोह आणि ऊर्जा" },
-    image: images.egg,
     steps: [
       { en: "Heat oil, sauté onion, green chilli and capsicum till soft.", hi: "तेल गरम करें, प्याज, हरी मिर्च और शिमला मिर्च को नरम होने तक भूनें।", mr: "तेल गरम करा, कांदा, हिरवी मिरची आणि शिमला मिरची मऊ होईपर्यंत परता." },
       { en: "Add tomato, haldi, chilli powder and salt; cook till mushy.", hi: "टमाटर, हल्दी, मिर्च पाउडर और नमक डालें; गूदेदार होने तक पकाएं।", mr: "टोमॅटो, हळद, तिखट आणि मीठ घाला; मऊ होईपर्यंत शिजवा." },
@@ -130,7 +108,6 @@ export const menstrualRecipes: Recipe[] = [
     benefits: { en: "Gentle on digestion for low-energy days. Moong adds protein, spinach gives iron and folate.", hi: "कम ऊर्जा वाले दिनों के लिए पाचन पर कोमल। मूंग प्रोटीन जोड़ता है, पालक आयरन और फोलेट देता है।", mr: "कमी ऊर्जेच्या दिवसांसाठी पचनावर सौम्य. मूग प्रथिने जोडतो, पालक लोह आणि फोलेट देतो." },
     time: { en: "25 to 30 min", hi: "25 से 30 मिनट", mr: "25 ते 30 मिनिटे" },
     category: { en: "Menstrual Health", hi: "मासिक धर्म स्वास्थ्य", mr: "मासिक पाळीचे आरोग्य" },
-    image: images.khichdi,
     steps: [
       { en: "Wash rice and moong dal together; soak 10 min.", hi: "चावल और मूंग दाल को एक साथ धो लें; 10 मिनट के लिए भिगो दें।", mr: "तांदूळ आणि मूग डाळ एकत्र धुवा; 10 मिनिटे भिजत ठेवा." },
       { en: "Heat ghee, splutter jeera, add hing, ginger-garlic and chopped spinach; sauté 2 min.", hi: "घी गरम करें, जीरा चटकाएं, हींग, अदरक-लहसुन और कटा हुआ पालक डालें; 2 मिनट भूनें।", mr: "तूप गरम करा, जिरे तडतडू द्या, हिंग, आले-लसूण आणि चिरलेला पालक घाला; 2 मिनिटे परता." },
@@ -145,7 +122,6 @@ export const menstrualRecipes: Recipe[] = [
     benefits: { en: "Iron and slow carbs from ragi, quick energy and potassium from banana.", hi: "रागी से आयरन और धीमी कार्ब्स, केले से तुरंत ऊर्जा और पोटैशियम।", mr: "नाचणीमधून लोह आणि हळू कर्बोदके, केळीमधून जलद ऊर्जा आणि पोटॅशियम." },
     time: { en: "10 to 15 min", hi: "10 से 15 मिनट", mr: "10 ते 15 मिनिटे" },
     category: { en: "Menstrual Health", hi: "मासिक धर्म स्वास्थ्य", mr: "मासिक पाळीचे आरोग्य" },
-    image: images.porridge,
     steps: [
       { en: "Whisk ragi flour with a little cold water to a smooth paste (no lumps).", hi: "रागी के आटे को थोड़े ठंडे पानी के साथ फेंट कर चिकना पेस्ट (कोई गांठ नहीं) बना लें।", mr: "नाचणीचे पीठ थोड्या थंड पाण्यासोबत फेटून गुळगुळीत पेस्ट (गुठळ्या नाहीत) बनवा." },
       { en: "Boil milk or water with cardamom; pour the ragi paste in slowly, stirring constantly.", hi: "इलायची के साथ दूध या पानी उबालें; लगातार हिलाते हुए धीरे-धीरे रागी का पेस्ट डालें।", mr: "वेलचीसोबत दूध किंवा पाणी उकळा; सतत ढवळत हळू हळू नाचणीची पेस्ट घाला." },
@@ -160,7 +136,6 @@ export const menstrualRecipes: Recipe[] = [
     benefits: { en: "Sesame gives iron, calcium and magnesium. Jaggery gives quick energy.", hi: "तिल आयरन, कैल्शियम और मैग्नीशियम देता है। गुड़ जल्दी ऊर्जा देता है।", mr: "तीळ लोह, कॅल्शियम आणि मॅग्नेशियम देते. गूळ जलद ऊर्जा देतो." },
     time: { en: "20 min", hi: "20 मिनट", mr: "20 मिनिटे" },
     category: { en: "Menstrual Health", hi: "मासिक धर्म स्वास्थ्य", mr: "मासिक पाळीचे आरोग्य" },
-    image: images.ladoo,
     steps: [
       { en: "Dry-roast sesame seeds on low till they pop and turn fragrant; cool slightly.", hi: "तिल को धीमी आंच पर तब तक भूनें जब तक कि वे फूटने न लगें और सुगंधित न हो जाएं; थोड़ा ठंडा करें।", mr: "तीळ मंद आचेवर तडतडेपर्यंत आणि सुवासिक होईपर्यंत कोरडे भाजा; थोडे थंड करा." },
       { en: "Melt jaggery with a spoon of ghee on low till syrupy.", hi: "एक चम्मच घी के साथ गुड़ को धीमी आंच पर चाशनी बनने तक पिघलाएं।", mr: "एका चमचा तुपासोबत गूळ मंद आचेवर साखरेच्या पाकासारखा होईपर्यंत वितळवा." },
@@ -178,7 +153,6 @@ export const tiffinRecipes: Recipe[] = [
     benefits: { en: "Filling, easy to eat, doesn't get messy if rolled tightly.", hi: "भरपूर, खाने में आसान, यदि कसकर लपेटा जाए तो गन्दा नहीं होता।", mr: "पोटभरीचे, खाण्यास सोपे, घट्ट गुंडाळल्यास खराब होत नाही." },
     time: { en: "10 to 15 min", hi: "10 से 15 मिनट", mr: "10 ते 15 मिनिटे" },
     category: { en: "School Tiffins", hi: "स्कूल टिफिन", mr: "शाळेचा डबा" },
-    image: images.wrap,
     steps: [
       { en: "Sauté onion and capsicum till soft, add tomato and dry spices.", hi: "प्याज और शिमला मिर्च को नरम होने तक भूनें, टमाटर और सूखे मसाले डालें।", mr: "कांदा आणि शिमला मिरची मऊ होईपर्यंत परता, टोमॅटो आणि सुके मसाले घाला." },
       { en: "Crumble paneer in and toss till just heated through.", hi: "पनीर को क्रम्बल करें और केवल गर्म होने तक मिलाएँ।", mr: "पनीर कुस्करून घाला आणि फक्त गरम होईपर्यंत मिसळा." },
@@ -192,7 +166,6 @@ export const tiffinRecipes: Recipe[] = [
     benefits: { en: "Light but filling. Batter can be made the night before.", hi: "हल्का लेकिन भरपूर। घोल पिछली रात बनाया जा सकता है।", mr: "हलके पण पोटभरीचे. पीठ आदल्या रात्री बनवता येते." },
     time: { en: "15 min", hi: "15 मिनट", mr: "15 मिनिटे" },
     category: { en: "School Tiffins", hi: "स्कूल टिफिन", mr: "शाळेचा डबा" },
-    image: images.dosa,
     steps: [
       { en: "Blend soaked moong dal with ginger, chilli, jeera and salt to a smooth batter.", hi: "भीगी हुई मूंग दाल को अदरक, मिर्च, जीरा और नमक के साथ मिलाकर एक चिकना घोल बना लें।", mr: "भिजवलेली मूग डाळ आले, मिरची, जिरे आणि मीठ घालून गुळगुळीत पीठ बनवा." },
       { en: "Spread thin on a hot tawa, drizzle oil and cook till crisp.", hi: "गरम तवे पर पतला फैलाएं, तेल छिड़कें और कुरकुरा होने तक पकाएं।", mr: "गरम तव्यावर पातळ पसरा, तेल शिंपडा आणि कुरकुरीत होईपर्यंत शिजवा." },
@@ -206,7 +179,6 @@ export const tiffinRecipes: Recipe[] = [
     benefits: { en: "Uses leftovers well and feels more exciting than plain rice.", hi: "बचे हुए का अच्छी तरह से उपयोग करता है और सादे चावल से अधिक रोमांचक लगता है।", mr: "उरलेल्या अन्नाचा चांगला वापर करते आणि साध्या भातापेक्षा अधिक रोमांचक वाटते." },
     time: { en: "12 to 15 min", hi: "12 से 15 मिनट", mr: "12 ते 15 मिनिटे" },
     category: { en: "School Tiffins", hi: "स्कूल टिफिन", mr: "शाळेचा डबा" },
-    image: images.friedRice,
     steps: [
       { en: "Scramble egg in hot oil and set aside.", hi: "गर्म तेल में अंडा फेंटें और एक तरफ रख दें।", mr: "गरम तेलात अंडे फेटा आणि बाजूला ठेवा." },
       { en: "Sauté chopped vegetables on high till just tender.", hi: "कटी हुई सब्जियों को तेज आंच पर थोड़ा नरम होने तक भूनें।", mr: "चिरलेल्या भाज्या मोठ्या आचेवर थोड्या मऊ होईपर्यंत परता." },
@@ -224,7 +196,6 @@ export const growthRecipes: Recipe[] = [
     benefits: { en: "Paneer and curd support protein and calcium. Ghee adds calories for healthy weight gain.", hi: "पनीर और दही प्रोटीन और कैल्शियम का समर्थन करते हैं। घी स्वस्थ वजन बढ़ाने के लिए कैलोरी जोड़ता है।", mr: "पनीर आणि दही प्रथिने आणि कॅल्शियमला आधार देतात. तूप निरोगी वजन वाढवण्यासाठी कॅलरीज जोडते." },
     time: { en: "20 min", hi: "20 मिनट", mr: "20 मिनिटे" },
     category: { en: "Growth Nutrition", hi: "विकास पोषण", mr: "वाढीचे पोषण" },
-    image: images.paratha,
     steps: [
       { en: "Knead atta with water and a pinch of salt to a soft dough.", hi: "आटे को पानी और चुटकी भर नमक के साथ नरम आटा गूंथ लें।", mr: "पीठ पाणी आणि चिमूटभर मीठ घालून मऊ कणीक मळून घ्या." },
       { en: "Mash paneer with ajwain, jeera powder, salt and chopped coriander.", hi: "पनीर को अजवायन, जीरा पाउडर, नमक और कटे हुए धनिये के साथ मैश कर लें।", mr: "पनीर ओवा, जिरे पावडर, मीठ आणि चिरलेल्या कोथिंबिरीसोबत कुस्करून घ्या." },
@@ -242,7 +213,6 @@ export const budgetSnacks: Recipe[] = [
     benefits: { en: "Protein, fibre and iron. Keeps you full longer.", hi: "प्रोटीन, फाइबर और आयरन। आपको लंबे समय तक भरा हुआ रखता है।", mr: "प्रथिने, फायबर आणि लोह. तुम्हाला जास्त काळ भरलेले ठेवते." },
     time: { en: "2 min", hi: "2 मिनट", mr: "2 मिनिटे" },
     category: { en: "Budget Snacks", hi: "बजट स्नैक्स", mr: "बजेट स्नॅक्स" },
-    image: images.chaat,
     steps: [
       { en: "Take a handful of roasted chana in a bowl.", hi: "एक कटोरी में मुट्ठी भर भुने हुए चने लें।", mr: "एका वाडग्यात मूठभर भाजलेले चणे घ्या." },
       { en: "Sprinkle black salt and a little chilli powder.", hi: "काला नमक और थोड़ी सी मिर्च पाउडर छिड़कें।", mr: "काळे मीठ आणि थोडे तिखट शिंपडा." },
@@ -256,7 +226,6 @@ export const budgetSnacks: Recipe[] = [
     benefits: { en: "Protein, healthy fats, energy. Great for healthy weight gain.", hi: "प्रोटीन, स्वस्थ वसा, ऊर्जा। स्वस्थ वजन बढ़ाने के लिए बढ़िया।", mr: "प्रथिने, निरोगी चरबी, ऊर्जा. निरोगी वजन वाढवण्यासाठी उत्तम." },
     time: { en: "5 to 7 min", hi: "5 से 7 मिनट", mr: "5 ते 7 मिनिटे" },
     category: { en: "Budget Snacks", hi: "बजट स्नैक्स", mr: "बजेट स्नॅक्स" },
-    image: images.chaat,
     steps: [
       { en: "Combine roasted peanuts with finely chopped onion, tomato and coriander.", hi: "भुनी हुई मूंगफली को बारीक कटे प्याज, टमाटर और धनिये के साथ मिला लें।", mr: "भाजलेले शेंगदाणे बारीक चिरलेला कांदा, टोमॅटो आणि कोथिंबिरीसोबत मिसळा." },
       { en: "Add chaat masala and salt.", hi: "चाट मसाला और नमक डालें।", mr: "चाट मसाला आणि मीठ घाला." },

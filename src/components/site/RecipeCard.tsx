@@ -1,4 +1,4 @@
-import { Clock, IndianRupee, Leaf, ChefHat } from "lucide-react";
+import { Clock, IndianRupee, Leaf, ChefHat, Sparkles } from "lucide-react";
 import { useState } from "react";
 import type { Recipe } from "@/lib/recipes";
 import { useI18n } from "@/lib/i18n";
@@ -12,51 +12,45 @@ export function RecipeCard({ r, index }: { r: Recipe; index?: number }) {
     <>
       <article
         onClick={() => setOpen(true)}
-        className="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-border bg-card text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+        className="group relative flex cursor-pointer flex-col overflow-hidden rounded-[24px] border border-white/40 bg-white/70 bg-gradient-to-br from-white/80 to-white/40 p-6 text-left shadow-[0_4px_24px_rgba(0,0,0,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] active:scale-[0.98]"
       >
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
-          {r.image ? (
-            <img src={r.image} alt={tt(r.name)} className="h-full w-full object-cover transition-transform group-hover:scale-105" />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-muted-foreground/40">
-              <ChefHat className="h-10 w-10" />
+        <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-primary/10 blur-2xl transition-all duration-500 group-hover:bg-primary/20" />
+        <div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-full bg-turmeric/10 blur-xl transition-all duration-500 group-hover:bg-turmeric/20" />
+
+        <div className="relative z-10 flex flex-1 flex-col">
+          {r.category && (
+            <div className="mb-3 flex items-center gap-2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-background/80 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-maroon shadow-sm backdrop-blur-md border border-border/50">
+                {tt(r.category)}
+              </span>
             </div>
           )}
-          {r.category && (
-            <span className="absolute left-3 top-3 rounded-full bg-background/90 px-2.5 py-1 text-xs font-bold text-maroon shadow-sm">
-              {tt(r.category)}
-            </span>
-          )}
-        </div>
 
-        <div className="flex flex-1 flex-col p-5">
-          <h3 className="font-display text-lg font-bold text-maroon">
+          <h3 className="font-display text-xl font-bold leading-tight text-foreground transition-colors group-hover:text-primary">
             {typeof index === "number" ? `${index}. ` : ""}
             {tt(r.name)}
           </h3>
-          {r.tag && (
-            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-primary">{tt(r.tag)}</p>
-          )}
 
-          <div className="mt-3 flex flex-wrap gap-2 text-xs">
-            <span className="inline-flex items-center gap-1 rounded-full bg-turmeric/40 px-2.5 py-1 font-bold text-maroon">
-              <IndianRupee className="h-3 w-3" />
+          <div className="mt-4 flex flex-wrap gap-2 text-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-turmeric/30 px-2.5 py-1 font-bold text-maroon border border-turmeric/50">
+              <IndianRupee className="h-3.5 w-3.5" />
               {tt(r.cost)}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 font-semibold text-secondary-foreground">
-              <Clock className="h-3 w-3" />
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary/80 px-2.5 py-1 font-semibold text-secondary-foreground border border-border/50">
+              <Clock className="h-3.5 w-3.5" />
               {tt(r.time)}
             </span>
           </div>
 
-          <p className="mt-4 line-clamp-2 flex items-start gap-1.5 text-sm">
-            <Leaf className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-            <span className="text-foreground/80">{tt(r.benefits)}</span>
+          <p className="mt-5 line-clamp-3 flex items-start gap-2 text-sm text-foreground/80 leading-relaxed">
+            <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-primary/70" />
+            <span>{tt(r.benefits)}</span>
           </p>
 
-          <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-primary">
-            {tt({ en: "Tap to view recipe →", hi: "रेसिपी देखने के लिए टैप करें →", mr: "रेसिपी पाहण्यासाठी टॅप करा →" })}
-          </p>
+          <div className="mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary/80 transition-colors group-hover:text-primary">
+            {tt({ en: "View Recipe", hi: "रेसिपी देखें", mr: "रेसिपी पहा" })}
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </div>
         </div>
       </article>
 

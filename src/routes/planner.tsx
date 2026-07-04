@@ -121,18 +121,21 @@ Return ONLY valid JSON matching this structure exactly (no markdown formatting, 
   const OptionBtn = ({ label, icon: Icon, current, onClick }: { label: string; icon?: any; current: string; onClick: () => void }) => (
     <button
       onClick={onClick}
-      className={`group flex flex-col items-center justify-center gap-4 rounded-[2rem] border-2 p-8 text-xl font-bold transition-all duration-300 hover:-translate-y-1 ${
+      className={`group relative overflow-hidden flex flex-col items-center justify-center gap-5 rounded-[32px] border p-8 text-xl font-bold transition-all duration-300 active:scale-95 hover:-translate-y-2 ${
         current === label
-          ? "border-primary bg-primary/10 text-primary shadow-lg ring-4 ring-primary/20"
-          : "border-border bg-card text-foreground hover:border-primary/40 hover:shadow-xl"
+          ? "border-primary/50 bg-gradient-to-br from-primary/10 to-primary/5 text-primary shadow-[0_16px_40px_rgba(0,0,0,0.1)] ring-4 ring-primary/20"
+          : "border-white/40 bg-white/60 text-foreground shadow-sm backdrop-blur-xl hover:border-primary/30 hover:bg-white/80 hover:shadow-[0_8px_32px_rgba(0,0,0,0.06)]"
       }`}
     >
+      {current === label && (
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 to-transparent opacity-50" />
+      )}
       {Icon && (
-        <div className={`rounded-full p-4 ${current === label ? 'bg-primary/20' : 'bg-secondary group-hover:bg-primary/10'}`}>
-          <Icon className={`h-10 w-10 ${current === label ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
+        <div className={`rounded-full p-5 transition-transform duration-300 group-hover:scale-110 ${current === label ? 'bg-primary/20 shadow-inner' : 'bg-secondary/80 group-hover:bg-primary/10'}`}>
+          <Icon className={`h-12 w-12 transition-colors duration-300 ${current === label ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'}`} />
         </div>
       )}
-      <span>{label}</span>
+      <span className="tracking-tight">{label}</span>
     </button>
   );
 
@@ -221,20 +224,23 @@ Return ONLY valid JSON matching this structure exactly (no markdown formatting, 
               )}
 
               {step === 5 && (
-                <div className="space-y-10 text-center rounded-[2.5rem] bg-gradient-to-br from-secondary/50 to-secondary/10 p-10 border border-border shadow-2xl backdrop-blur-sm">
-                  <h2 className="text-4xl font-extrabold text-maroon tracking-tight">{tt({ en: "Ready to curate your menu!", hi: "आपका मेनू तैयार करने के लिए तैयार!", mr: "तुमचा मेनू तयार करण्यासाठी तयार!" })}</h2>
-                  <p className="text-lg font-medium text-muted-foreground">{tt({ en: "We will generate personalized meal options based on your selections.", hi: "हम आपके चयनों के आधार पर व्यक्तिगत भोजन विकल्प तैयार करेंगे।", mr: "आम्ही तुमच्या निवडीनुसार वैयक्तिकृत जेवण पर्याय तयार करू." })}</p>
-                  <div className="flex flex-wrap justify-center gap-4 text-sm font-bold">
-                    <span className="rounded-full bg-background px-6 py-3 border border-border shadow-sm flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/>{form.target}</span>
-                    <span className="rounded-full bg-background px-6 py-3 border border-border shadow-sm flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/>{form.budget}</span>
-                    <span className="rounded-full bg-background px-6 py-3 border border-border shadow-sm flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/>{form.diet}</span>
-                    <span className="rounded-full bg-background px-6 py-3 border border-border shadow-sm flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/>{form.focus}</span>
+                <div className="relative overflow-hidden space-y-10 text-center rounded-[32px] border border-white/50 bg-white/60 p-12 shadow-[0_16px_48px_rgba(0,0,0,0.08)] backdrop-blur-2xl">
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/10 via-transparent to-turmeric/10" />
+                  <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-maroon tracking-tight">{tt({ en: "Ready to curate your menu!", hi: "आपका मेनू तैयार करने के लिए तैयार!", mr: "तुमचा मेनू तयार करण्यासाठी तयार!" })}</h2>
+                  <p className="text-xl font-medium text-foreground/70 max-w-xl mx-auto">{tt({ en: "We will generate personalized meal options based on your selections.", hi: "हम आपके चयनों के आधार पर व्यक्तिगत भोजन विकल्प तैयार करेंगे।", mr: "आम्ही तुमच्या निवडीनुसार वैयक्तिकृत जेवण पर्याय तयार करू." })}</p>
+                  
+                  <div className="flex flex-wrap justify-center gap-4 text-[15px] font-bold">
+                    <span className="rounded-full bg-white/80 px-6 py-3 border border-white shadow-sm flex items-center gap-2 backdrop-blur-sm"><CheckCircle2 className="w-5 h-5 text-primary"/>{form.target}</span>
+                    <span className="rounded-full bg-white/80 px-6 py-3 border border-white shadow-sm flex items-center gap-2 backdrop-blur-sm"><CheckCircle2 className="w-5 h-5 text-primary"/>{form.budget}</span>
+                    <span className="rounded-full bg-white/80 px-6 py-3 border border-white shadow-sm flex items-center gap-2 backdrop-blur-sm"><CheckCircle2 className="w-5 h-5 text-primary"/>{form.diet}</span>
+                    <span className="rounded-full bg-white/80 px-6 py-3 border border-white shadow-sm flex items-center gap-2 backdrop-blur-sm"><CheckCircle2 className="w-5 h-5 text-primary"/>{form.focus}</span>
                   </div>
+                  
                   <button 
                     onClick={generatePlan}
-                    className="mt-6 inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-xl font-extrabold text-primary-foreground shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-primary/30 hover:shadow-2xl"
+                    className="group relative mt-6 inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-primary/80 px-12 py-5 text-xl font-bold text-white shadow-[0_8px_32px_rgba(0,0,0,0.15)] transition-all duration-300 hover:scale-105 hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)] active:scale-95"
                   >
-                    <Sparkles className="h-6 w-6" />
+                    <Sparkles className="h-6 w-6 transition-transform group-hover:scale-110" />
                     {tt({ en: "Generate Options", hi: "विकल्प बनाएं", mr: "पर्याय तयार करा" })}
                   </button>
                 </div>
@@ -244,15 +250,15 @@ Return ONLY valid JSON matching this structure exactly (no markdown formatting, 
                 <div className="mt-12 flex justify-between items-center">
                   <button 
                     onClick={() => setStep((s) => Math.max(1, s - 1))}
-                    className={`inline-flex items-center gap-2 px-6 py-3 font-bold text-muted-foreground hover:text-foreground transition-colors ${step === 1 ? "opacity-0 pointer-events-none" : ""}`}
+                    className={`inline-flex items-center gap-2 px-6 py-3 font-bold text-muted-foreground hover:text-foreground transition-colors active:scale-95 ${step === 1 ? "opacity-0 pointer-events-none" : ""}`}
                   >
                     <ArrowLeft className="h-5 w-5" /> {tt({ en: "Back", hi: "पीछे", mr: "मागे" })}
                   </button>
                   <button 
                     onClick={() => setStep((s) => Math.min(5, s + 1))}
-                    className="inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 font-bold text-background hover:bg-foreground/90 transition-transform hover:scale-105 shadow-lg"
+                    className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-foreground to-foreground/80 px-8 py-4 font-bold text-background shadow-[0_8px_24px_rgba(0,0,0,0.15)] transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_12px_32px_rgba(0,0,0,0.2)]"
                   >
-                    {tt({ en: "Continue", hi: "जारी रखें", mr: "पुढे चालू ठेवा" })} <ArrowRight className="h-5 w-5" />
+                    {tt({ en: "Continue", hi: "जारी रखें", mr: "पुढे चालू ठेवा" })} <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </button>
                 </div>
               )}
