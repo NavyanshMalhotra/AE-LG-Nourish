@@ -64,7 +64,7 @@ Return ONLY valid JSON matching this structure exactly (no markdown formatting, 
   { "day": "Day 3", "breakfast": "...", "lunch": "...", "dinner": "..." }
 ]`;
 
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
