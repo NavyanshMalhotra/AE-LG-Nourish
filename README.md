@@ -85,6 +85,16 @@ The app is fully automated to deploy to GitHub Pages using GitHub Actions whenev
 
 Whenever you run `git push origin main`, GitHub will automatically build your React app, securely inject your API key into the final build, and deploy the live site. 
 
+**Updating the API Key & Redeploying (Without Git Push):**
+If you need to change the API key later without making any code changes, you can do so directly from the GitHub UI:
+1. Go to your GitHub repository -> **Settings** -> **Secrets and variables** -> **Actions**.
+2. Under "Repository secrets", find `VITE_GEMINI_API_KEY` and click the **pencil icon (Update)** next to it.
+3. Paste the new API key and click **Update secret**.
+4. To redeploy the site with the new key, go to the **Actions** tab at the top of your repository.
+5. In the left sidebar, click on your deployment workflow (e.g., `Deploy static content to Pages` or similar).
+6. Click the **Run workflow** dropdown button on the right side of the screen.
+7. Click the green **Run workflow** button. This will trigger a fresh build and deployment using your newly updated API key!
+
 **Troubleshooting API Keys:**
 If your live site throws a `400 Bad Request` or `403 Forbidden` API error:
 - Ensure you did not include quotes (`""`) when pasting the API key into GitHub Secrets.
