@@ -23,7 +23,7 @@ function RecipesPage() {
 
   const recipes = useMemo(() => {
     let list = allRecipes;
-    if (cat !== "All") list = list.filter((r) => r.category && tt(r.category) === cat);
+    if (cat !== "All") list = list.filter((r) => r.category && (typeof r.category === 'string' ? r.category : r.category.en) === cat);
     if (q) {
       const needle = q.toLowerCase();
       list = list.filter((r) =>
@@ -53,19 +53,22 @@ function RecipesPage() {
             />
           </div>
           <div className="mt-3 flex flex-wrap gap-2">
-            {categories.map((rc) => (
+            {categories.map((rc) => {
+              const label = rc === "All" ? tt({ en: "All", hi: "सभी", mr: "सर्व" }) : tt(rc);
+              const val = rc === "All" ? "All" : tt(rc); // using localized string as value for simplicity or could use en
+              return (
               <button
-                key={rc}
-                onClick={() => setCat(rc)}
+                key={val}
+                onClick={() => setCat(rc === "All" ? "All" : typeof rc === 'string' ? rc : rc.en)}
                 className={`rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors ${
-                  cat === rc
+                  cat === (rc === "All" ? "All" : typeof rc === 'string' ? rc : rc.en)
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border bg-background text-muted-foreground hover:bg-secondary"
                 }`}
               >
-                {rc === "All" ? tt({ en: "All", hi: "सभी", mr: "सर्व" }) : rc}
+                {label}
               </button>
-            ))}
+            )})}
           </div>
         </div>
 
