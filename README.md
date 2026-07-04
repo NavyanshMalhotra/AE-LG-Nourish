@@ -82,3 +82,6 @@ The app is configured to automatically deploy to GitHub Pages.
    ```
 3. This command will build the app, embed the API key securely into the static files, and push the output to the `gh-pages` branch.
 4. On GitHub, navigate to **Settings -> Pages** and set the source to deploy from the **`gh-pages`** branch.
+
+**Troubleshooting GitHub Actions:**
+If you ever see a "submodule" error (`fatal: No url found for submodule path`) in GitHub Actions, it means your `node_modules` got accidentally pushed to `main`. Ensure your `.gitignore` contains `node_modules`, then run `git rm -r --cached node_modules` and commit the change.
