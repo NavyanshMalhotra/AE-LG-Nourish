@@ -35,9 +35,9 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build
-        env:
-          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+        run: |
+          echo "VITE_GEMINI_API_KEY=${{ secrets.VITE_GEMINI_API_KEY }}" > .env
+          npm run build
 
       - name: Add .nojekyll and 404 router fallback
         run: |
