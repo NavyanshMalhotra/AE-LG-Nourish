@@ -145,7 +145,7 @@ Return ONLY valid JSON matching this structure exactly (no markdown formatting, 
 
   return (
     <SiteLayout>
-      <div className="mx-auto max-w-5xl px-4 py-12 sm:py-20">
+      <div className="mx-auto flex-1 flex flex-col justify-center w-full max-w-5xl px-4 py-8 sm:py-12">
         
         {/* Wizard UI (print:hidden so it doesn't show in PDF) */}
         <div className="print:hidden">

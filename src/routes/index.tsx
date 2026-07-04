@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <SiteLayout>
-      <section className="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden p-6 text-center">
+      <section className="relative flex-1 w-full flex flex-col items-center justify-center overflow-hidden px-4 py-8 sm:p-6 text-center">
         {/* Soft, premium animated background blobs */}
         <div className="absolute inset-0 -z-10 bg-background/50" />
         <div className="absolute -top-[20%] left-[10%] -z-10 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
